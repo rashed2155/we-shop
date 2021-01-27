@@ -1,38 +1,488 @@
-.App {
+*{
+  margin: 0;
+  padding: 0;
+}
+#root{
+  margin: 0;
+  padding: 0;
+  height: 100%;  
+}
+body{
+  font-family: 'Poppins', sans-serif;
+  scrollbar-width: thin;
+}
+.app {
+  background-color: #fff;
+  max-width: 1230px;
+  width: 100%;
+  margin: auto;
+  padding: 0 auto;
+  height: 100%;
+}
+
+header{
+  width: 100%;
+  min-height: 100px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+.logo{
+  margin: 0 30px;
+}
+.cart{
+  font-size: 30px;
+  cursor: pointer;
+  transition: all 0.2s;
+  color: #666;
+}
+.cart-icon{
+  position: relative;
+  margin-right: 15px;
+}
+.cart-icon span{
+  background: crimson;
+  border-radius: 20px;
+  color: #fff;
+  position: absolute;
+  top: -50%;
+  right: -10%;
+  font-size: 10px;
+  padding: 5px;
+}
+.cart:hover{
+  color: rgb(21, 122, 161);
+}
+a{
+  text-decoration: none;
+  color: #555;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+}
+a:hover{
+  color: rgb(21, 122, 161);
+}
+ul li{
+  list-style: none;
+  display: inline-block;
+  padding: 0 15px;
+  margin-top: 17px;
+}
+
+.menu{
+  display: none;
+}
+.products{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.products .card{
+  height: 100%;
+  width: 340px;
+  box-shadow: 0 0 5px #ccc;
+  padding: 15px;
+  margin: 15px auto;
+}
+
+.card img{
+  width: 340px;
+  min-height: 340px;
+  display: block;
+  object-fit: cover;
+}
+.card .box{
+  margin: 15px 10px;
+}
+
+.card .box h3{
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-size: 22px;
+}
+.card .box p{
+  margin: 10px 0;
+  line-height: 1.2;
+  height: 33px;
+  overflow: hidden;
+  font-size: 14px;
+}
+.card .box h4{
+  color: crimson;
+  margin: 20px auto;
+}
+.card .box button{
+  width: 100%;
+  background: #333;
+  outline: none;
+  border: none;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+.card .box button:hover{
+  background: #666;
+}
+
+.details{
+  display: flex;
+  flex-wrap: wrap;
+  padding: 15px 0;
+  border-bottom: 1px solid #ccc;
+}
+.details .img-container{
+  max-width: 400px;
+  width: 100%;
+  margin: auto;
+  height: 450px;
+}
+.img-container img{
+  padding: 20px 0;
+  width: 100%;
+  box-shadow: 0 0 5px #ccc;
+}
+.box-details{
+  max-width: 600px;
+  width: 100%;
+  margin: 20px;
+}
+.details .box-details h2{
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #555;
+  font-weight: 700;
+  font-size: 25px;
+}
+.details .box-details h3{
+  color: crimson;
+  font-size: 25px;
+  margin: 20px auto;
+}
+.action{
+  text-align: center;
+  margin: 60px auto;
+  padding: 0 15px;
+  max-width: 500px;
+}
+.action button{
+  width: 100%;
+  background: #333;
+  outline: none;
+  border: none;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+.action button:hover{
+  background: #666;
+}
+.details .box-details p{
+  text-transform: capitalize;
+  color: rgb(116, 110, 110);
+  font-weight: 400;
+  font-size: 15px;
+}
+.login{
+  box-shadow: 0 0 5px #ccc;
+  max-width: 500px;
+  align-items: center;
+  margin: 80px auto;
+  width: 100%;
+  padding: 0 15px;
+}
+
+.input-box{
+  padding: 10px 10px;
+}
+.login h2{
+  padding: 5px 10px;
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 10px;
+  color: #555;
+  padding: 20px 25px;
+}
+.login-btn{
+  text-align: center;
+  margin: 10px auto;
+}
+.btn-primary{
+  background: rgb(21, 122, 161);
+  border: rgb(21, 122, 161);
+  transition: all 0.2s;
+}
+.btn-primary:hover{
+  background: rgb(90, 88, 88);
+}
+input{
+  width: 250px;
+  height: 35px;
+  border: 1px solid rgb(196, 196, 196);
+}
+.register{
+  margin: 20px auto;
+}
+
+.show-cart{
+  margin-bottom: 10px;
+}
+.details-cart{
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: auto;
+}
+.detail-cart{
+  display: flex;
+  position: relative;
+  transform: scaleY(0.98);
+  margin: auto 10px;
+  padding: 10px;
+}
+.cart-box{
+  margin: 0 30px;
+}
+.cart-box h3{
+  margin: 30px 0;
+  color: crimson;
+  font-size: 1.5rem;
+}
+.delete{
+  color: crimson;
+  margin: -15px -10px;
+  font-weight: 900;
+  cursor: pointer;
+}
+.detail-cart .cart-box h2{
+  text-transform: uppercase;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: #555;
+  font-weight: 700;
+  font-size: 20px;
+}
+.amount span{
+  color: crimson;
+  padding: 0 20px;
+}
+.count{
+  width: 40px;
+  height: 30px;
+  border: 1px solid #555;
+  cursor: pointer;
+  background: #555;
+  color: #fff;
+}
+.order{
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 25px;
+  margin-bottom: 50px;
+}
+.order button{
+  width: 150px;
+  background: #333;
+  outline: none;
+  border: none;
+  color: #fff;
+  text-align: center;
+  padding: 10px 0;
+  margin: 0;
+  text-transform: uppercase;
+  cursor: pointer;
+  letter-spacing: 2px;
+  transition: all 0.2s;
+}
+.order button:hover{
+  background: #666;
+  color: #fff;
+}
+.order h3{
+  color: crimson;
+  margin-top: 6px;
+}
+
+/* about */
+
+.about{
+  display: flex;
+  justify-content: space-between;
+  padding: 30px;
+  border-bottom: 1px solid #ccc;
+}
+
+.about-logo{
+  display: block;
+  text-transform: uppercase;
+  box-shadow: 0 0 5px #ccc;
+  padding: 10px;
   text-align: center;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.about-logo h2{
+  color: #666;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
+.about-logo img{
+  max-width: 300px;
+  padding: 20px;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+}
+.info{
+  margin: auto;
+  padding: 31px;
+}
+.about-info h2{
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #666;
+  letter-spacing: 2px;
+}
+.s-icon{
+  font-size: 3rem;
+  color: #666;
+}
+.wp{
+  display: flex;
+}
+.wp h4{
+  margin: 10px 7px;
+  color: #333;
+}
+.fb a{
+  margin: 10px 7px;
+  color: #333;
+}
+.fb{
+  display: flex;
 }
 
-.App-link {
-  color: #61dafb;
-}
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width: 700px){
+  header{
+    justify-content: space-between;
   }
-  to {
-    transform: rotate(360deg);
+  ul{
+    position: fixed;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0.98;
+    z-index: 99;
+    transition: 0.5s ease-in;
+  }
+  ul li{
+    margin: 50px auto;
+  }
+  .logo{
+    text-align: center;
+    margin: auto;
+  }
+  .menu{
+    position: absolute;
+    top: 24px;
+    left: 30px;
+    display: block;
+    cursor: pointer;
+    list-style: none;
+    font-size: 2rem;
+    margin-right: 15px;
+    color: rgb(90, 88, 88);
+  }
+  ul li .menu{
+    position: absolute;
+    top: 15px;
+    right: 5px;
+    list-style: none;
+  }
+  .detail-cart .cart-box h2{
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #555;
+    font-weight: 700;
+    font-size: 18px;
+  }
+  .about{
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 500px){
+  .details{
+    padding: 10px;
+  }
+  .logo{
+    text-align: center;
+    margin: auto;
+    margin-right: 40px;
+  }
+  .detail-cart .cart-box h2{
+    text-transform: uppercase;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #555;
+    font-weight: 700;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 300px){
+  .logo{
+    text-align: center;
+    margin: auto;
+  }
+  .logo h1{
+    font-size: 20px;
+  }
+  .menu{
+    font-size: 1.2rem;
+  }
+  .cart-icon span{
+    font-size: 8px;
+  }
+  .cart-icon i{
+    font-size: 22px;
   }
 }
